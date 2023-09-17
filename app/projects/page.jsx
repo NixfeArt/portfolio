@@ -5,6 +5,7 @@ const Projects = () => {
   return(
     <div className="mt-10">
       <Title extraClasses={['text-primary']}>This are my Projects!!</Title>
+      <p>HEllooo</p>
       <ProjectsNavigation />
     </div>
   )
