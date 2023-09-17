@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 const ProjectsNavigation = () => {
+  return (
   <div>
     <ul className="flex gap-3 font-roboto500 text-violet-900">
       <li className="hover:text-violet-600">
@@ -11,6 +12,7 @@ const ProjectsNavigation = () => {
       </li>
     </ul>
   </div>
+  )
 }
 
 export default ProjectsNavigation
