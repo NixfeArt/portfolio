@@ -1,11 +1,10 @@
 import AboutMe from "@/components/aboutMe"
-import ProjectsNavigation from "@/components/projects-navigation"
 
 const HomePage = () => {
   return (
-    <>
+    <div className="flex justify-center">
       <AboutMe />
-    </>
+    </div>
   )
 }
 

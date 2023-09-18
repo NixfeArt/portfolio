@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { useAuthContext } from "./auth-context"
+import { useAuthContext } from "../../context/auth-context"
 import AuthErrorMsg from "./auth-error-msg"
 import Label from "../UI/label"
 import Title from "../UI/title"

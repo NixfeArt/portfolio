@@ -1,4 +1,4 @@
-import { useAuthContext } from "../auth/auth-context" 
+import { useAuthContext } from "../../context/auth-context" 
 
 const Label = ({label, children, extraStyle, hasInfo}) => {
   const {state, dispatch} = useAuthContext()
