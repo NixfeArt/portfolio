@@ -5,9 +5,12 @@ const MovieDetails = () => {
 
   return (
     <div className="p-4">
-    <p>{selectedMovie.title}</p>
-    <p>{selectedMovie.release_date}</p>
-    <p>{selectedMovie.overview}</p>
+      {isSelected ? <>
+        <p>{selectedMovie.title}</p>
+        <p>{selectedMovie.release_date}</p>
+        <p>{selectedMovie.overview}</p>
+      </>
+      : <p>Movie Not selected</p>}
     </div>
   )
 }
