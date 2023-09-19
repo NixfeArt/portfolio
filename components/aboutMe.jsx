@@ -2,7 +2,7 @@ import Paragraph from "./UI/paragraph"
 import Title from "./UI/title"
 
 const AboutMe = () => {
-  const extraClasses = ['text-2xl sm:text-3xl']
+  const extraClasses = ['text-lg sm:text-xl']
 
   return(
     <div className="mt-4 sm:w-1/2">

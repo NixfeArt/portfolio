@@ -4,6 +4,7 @@ const SET_SEARCH = 'SET_SEARCH'
 const SET_MOVIES = 'SET_MOVIES'
 const SET_URL = 'SET_URL'
 const SELECT_MOVIE = 'SELECT_MOVIE'
+const DESELECT_MOVIE = 'DESELECT_MOVIE'
 const SELECTED = 'SELECTED'
 
 const movieReducer = (state,action) => {
@@ -14,6 +15,8 @@ const movieReducer = (state,action) => {
       return {...state, movies: action.payload}
     case SELECT_MOVIE:
       return {...state, selectedMovie: action.payload}
+    case DESELECT_MOVIE:
+      return state.selectedMovie
     case SELECTED:
       return {...state, isSelected: action.payload}
     case SET_URL:
