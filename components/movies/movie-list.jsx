@@ -3,7 +3,7 @@ import { useMovieContext } from "@/context/movie-context"
 import useFetch from "@/lib/hooks/useApi";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import SubTitle from "../UI/subTitle";
+import SubTitle from "../UI/sub-title";
 
 const MovieList = () => {
   const router = useRouter()

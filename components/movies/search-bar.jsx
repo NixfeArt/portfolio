@@ -2,6 +2,7 @@
 import { useMovieContext } from "@/context/movie-context"
 import Btn from "../btns/btn"
 import { useState } from "react"
+import Input from "../UI/input"
 
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState('')
@@ -26,10 +27,9 @@ const SearchBar = () => {
       className="flex flex-col w-full mt-5"
     >
       <label className="text-sm font-semibold text-violet-700">Search Movies</label>
-      <input
+      <Input
         value={searchInput}
         onChange={handleOnChange}
-        className="input-field"
         type="text"
       />
       <Btn>Search</Btn>

@@ -6,18 +6,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        'primary': '#ff0000'
-      },
-      width: {
-
-      },
-      spacing: {
-
-      },
-      borderRadius: {
-
-      },
       fontFamily: {
         roboto400: ['var(--font-roboto400)', 'sans-serif'],
         roboto500: ['var(--font-roboto500)', 'sans-serif'],

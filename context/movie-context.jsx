@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useContext, useReducer } from 'react'
 
 const SET_SEARCH = 'SET_SEARCH'

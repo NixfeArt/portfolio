@@ -1,7 +1,7 @@
 import AboutMe from "@/components/aboutMe"
 
 const HomePage = () => {
-  return (
+    return (
     <div className="flex justify-center">
       <AboutMe />
     </div>
