@@ -18,7 +18,7 @@ const MovieList = () => {
 
   useEffect(() => {
     if(isSelected) {
-      router.push(`/projects/movies/movie:${selectedMovie.id}`)
+      router.push(`/projects/movies/${selectedMovie.id}`)
     }
   }, [selectedMovie, isSelected])
 
