@@ -1,7 +1,8 @@
+'use client'
 import { useMovieContext } from "@/context/movie-context"
 import Btn from "../btns/btn"
-import { redirect, useRouter } from "next/navigation"
-import SubTitle from "../UI/subTitle"
+import { useRouter } from "next/navigation"
+import SubTitle from "../UI/sub-title"
 
 const MovieDetails = () => {
   const {state: {selectedMovie, isSelected}, dispatch} = useMovieContext()

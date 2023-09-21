@@ -3,7 +3,7 @@ import { useAuthContext } from "../../context/auth-context"
 import AuthErrorMsg from "./auth-error-msg"
 import Label from "../UI/label"
 import Title from "../UI/title"
-import SubTitle from "../UI/subTitle"
+import SubTitle from "../UI/sub-title"
 import InfoBoxAuth from "./info-box-auth"
 import Btn from "../btns/btn"
 

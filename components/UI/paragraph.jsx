@@ -1,12 +1,26 @@
-const Paragraph = ({
-  children,
-  isCenter = true
-}) => {
-  const align = isCenter ? 'text-center' : 'text-left'
-  
-  return <p className={`text-gray-800 font-roboto400 p-4 ${align} text-normal sm:text-lg`}>
-    {children}
-  </p>
-}
+import { StyledParagraph } from '@/styles/styled';
+import React from 'react';
+import { css } from 'styled-components';
 
-export default Paragraph
+const Paragraph = ({
+  align='center',
+  children,
+  extraStyle,
+  className,
+}) => {
+
+  const additionalStyles = css`
+    text-align: ${align};
+    ${extraStyle}
+  `;
+
+  return (
+    <StyledParagraph
+      className={`text-base md:text-md mb-5 mt-3 ${className}`}
+      css={additionalStyles}>
+      {children}
+    </StyledParagraph>
+  );
+};
+
+export default Paragraph;
