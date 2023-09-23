@@ -1,3 +1,4 @@
+'use client'
 import { StyledTitle } from "@/styles/styled"
 import { css } from 'styled-components';
 

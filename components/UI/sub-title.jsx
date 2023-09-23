@@ -1,3 +1,4 @@
+'use client'
 import { StyledSubTitle } from '@/styles/styled';
 import { css } from 'styled-components';
 import React from 'react';

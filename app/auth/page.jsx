@@ -1,11 +1,7 @@
-'use client'
-import Authentication from "@/components/auth/auth"
-import { AuthProvider } from "@/context/auth-context"
+import SignUp from "@/components/auth/signup"
 
 export default function Auth() {
   return (
-    <AuthProvider>
-      <Authentication />
-    </AuthProvider>
+    <SignUp />
   )
 }

@@ -1,8 +1,11 @@
-'use client'
 import SubTitle from "@/components/UI/sub-title"
 import Title from "@/components/UI/title"
 import Btn from "@/components/btns/btn"
 import Link from "next/link";
+
+export const metadata = {
+  title: 'Projects'
+}
 
 const Projects = () => {
 

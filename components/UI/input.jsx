@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { StyledInput } from '@/styles/styled';
 import { css } from 'styled-components';
 
-const Input = ({
+const Input = forwardRef(({
   children,
   extraStyle,
   className,
   value,
   onChange,
   type,
-  ref,
-}) => {
+  name,
+}, ref) => {
   const additionalStyles = css`
     ${extraStyle}
   `;
 
   return (
     <StyledInput
+      name={name}
       value={value}
       onChange={onChange}
       type={type}
@@ -26,6 +27,6 @@ const Input = ({
       {children}
     </StyledInput>
   );
-};
+});
 
 export default Input;

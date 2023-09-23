@@ -1,6 +1,8 @@
+import LogIn from "@/components/auth/login"
+
 const SignIn = () => {
   return (
-    <h3>Sign In Here!</h3>
+    <LogIn />
   )
 }
 

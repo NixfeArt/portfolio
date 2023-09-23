@@ -1,3 +1,4 @@
+'use client'
 import { useRef } from "react"
 import { useAuthContext } from "../../context/auth-context"
 import AuthErrorMsg from "./auth-error-msg"
@@ -6,13 +7,17 @@ import Title from "../UI/title"
 import SubTitle from "../UI/sub-title"
 import InfoBoxAuth from "./info-box-auth"
 import Btn from "../btns/btn"
+import Input from "../UI/input"
+import FormWrapper from "../UI/form-wrapper"
+import Paragraph from "../UI/paragraph"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 
-const SignIn = () => {
-
+const SignUp = () => {
+  const router = useRouter()
   const {state, dispatch} = useAuthContext()
 
   const {
-    isAuthenticated,
     isToggled,
     user,
     errors
@@ -27,11 +32,12 @@ const SignIn = () => {
 
   const validateAuth = (event) => {
     let hasError = false
+    let firstInvalidRef = null
 
     if(!user.userName.match(/^[A-Z][A-Za-z]{5,}$/)) {
       dispatch({ type: 'SET_ERROR', field: 'userName', value: true })
       hasError = true
-      userNameRef.current.focus()
+      if (!firstInvalidRef) firstInvalidRef = userNameRef
     } else {
       dispatch({ type: 'SET_ERROR', field: 'userName', value: false })
     }
@@ -39,7 +45,7 @@ const SignIn = () => {
     if(user.firstName.trim() === '') {
       dispatch({ type: 'SET_ERROR', field: 'firstName', value: true })
       hasError = true
-      firstNameRef.current.focus()
+      if (!firstInvalidRef) firstInvalidRef = firstNameRef
     } else {
       dispatch({ type: 'SET_ERROR', field: 'firstName', value: false })
     }
@@ -47,7 +53,7 @@ const SignIn = () => {
     if(user.lastName.trim() === '') {
       dispatch({ type: 'SET_ERROR', field: 'lastName', value: true })
       hasError = true
-      lastNameRef.current.focus()
+      if (!firstInvalidRef) firstInvalidRef = lastNameRef
     } else {
       dispatch({ type: 'SET_ERROR', field: 'lastName', value: false })
     }
@@ -55,7 +61,7 @@ const SignIn = () => {
     if (!user.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       dispatch({ type: 'SET_ERROR', field: 'email', value: true })
       hasError = true
-      emailRef.current.focus()
+      if (!firstInvalidRef) firstInvalidRef = emailRef
     } else {
       dispatch({ type: 'SET_ERROR', field: 'email', value: false })
     }
@@ -63,7 +69,7 @@ const SignIn = () => {
     if (user.password.length < 6) {
       dispatch({ type: 'SET_ERROR', field: 'password', value: true })
       hasError = true
-      passwordRef.current.focus()
+      if (!firstInvalidRef) firstInvalidRef = passwordRef
     } else {
       dispatch({ type: 'SET_ERROR', field: 'password', value: false })
     }
@@ -71,9 +77,13 @@ const SignIn = () => {
     if (user.password !== user.confirmPassword) {
       dispatch({ type: 'SET_ERROR', field: 'confirmPassword', value: true })
       hasError = true
-      passwordRef.current.focus()
+      if (!firstInvalidRef) firstInvalidRef = passwordRef
     } else {
       dispatch({ type: 'SET_ERROR', field: 'confirmPassword', value: false })
+    }
+
+    if (firstInvalidRef && firstInvalidRef.current) {
+      firstInvalidRef.current.focus();
     }
 
     return hasError
@@ -90,22 +100,23 @@ const SignIn = () => {
     
     let hasError = validateAuth()
     if (!hasError) {
-      dispatch({ type: 'SET_AUTH', value: true });
+      dispatch({ type: 'SET_AUTH', value: true })
+      router.push('/')
     }
   }
 
   return (
     <div
       style={{minHeight: '100vh'}}
-      className="bg-slate-200 flex flex-col p-5 justify-center items-center  h-full">
-      <form
+      className="flex flex-col p-5 justify-center items-center h-full">
+      <FormWrapper
         onSubmit={handleSubmit}
         noValidate
         className="w-80">
-          <Title extraClasses={['text-4xl sm:text-5xl mb-3 text-left']}>Welcome!</Title>
-          <SubTitle extraClasses={['text-xl sm:text-2xl leading-6']}>To my Portfolio and Enjoy the Experience</SubTitle>
+          <Title>Welcome!</Title>
+          <SubTitle>Register and Enjoy the Experience</SubTitle>
           <Label label="User Name" extraStyle={{marginTop: 10}} hasInfo>
-            <input
+            <Input
               className="input-field"
               type="text"
               name="userName"
@@ -120,7 +131,7 @@ const SignIn = () => {
             }
           </Label>
         <Label label="First Name">
-          <input
+          <Input
             className="input-field"
             type="text"
             name="firstName"
@@ -134,7 +145,7 @@ const SignIn = () => {
           }
         </Label>
         <Label label="Last Name">
-          <input
+          <Input
             className="input-field"
             type="text"
             name="lastName"
@@ -148,7 +159,7 @@ const SignIn = () => {
           }
         </Label>
         <Label label="Email">
-          <input
+          <Input
             className="input-field"
             placeholder="you@example.com"
             type="email"
@@ -163,7 +174,7 @@ const SignIn = () => {
           }
         </Label>
         <Label label="Password">
-          <input
+          <Input
             className="input-field"
             type="password"
             name="password"
@@ -177,7 +188,7 @@ const SignIn = () => {
           }
         </Label>
         <Label label="Confirm Password">
-          <input
+          <Input
             className="input-field"
             type="password"
             name="confirmPassword"
@@ -191,10 +202,17 @@ const SignIn = () => {
           }
         </Label>
         <Btn>Submit</Btn>
-        {/* <button className="btn-primary mt-5" type="submit">Submit</button> */}
-      </form>
+      </FormWrapper>
+      <Paragraph>
+        Already have an account?{' '}
+        <Link
+          className="text-violet-500 hover:text-violet-400 font-roboto700"
+          href="/auth/login">
+          Log In Now!
+          </Link>
+      </Paragraph>
     </div>
   )
 }
 
-export default SignIn
+export default SignUp

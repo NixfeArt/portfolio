@@ -32,3 +32,7 @@ export const StyledInput = styled.input`
   color: ${(props) => props.theme.inputColor};
   ${(props) => props.css}
 `
+
+export const StyledFormWrapper = styled.form`
+
+`

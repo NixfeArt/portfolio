@@ -1,5 +1,3 @@
-'use client'
-import { useTheme } from "@/context/theme-context"
 import Paragraph from "./UI/paragraph"
 import Title from "./UI/title"
 import SubTitle from "./UI/sub-title"
@@ -8,7 +6,7 @@ const AboutMe = () => {
   const extraClasses = [`text-lg sm:text-xl`]
 
   return(
-    <div className="mt-4 sm:w-1/2 p-4">
+    <div className="mt-4 sm:w-1/2 p-10 sm:p-5">
         <Title isRoboto={false}>Welcome to My Portfolio</Title>
         <Paragraph className="mb-10">Hey there! I'm Aleksandar Kovacevic, a passionate designer and frontend developer, with a strong focus on crafting beautiful user experiences. My journey in the world of design, UI/UX, and frontend development has been a thrilling adventure, and I'm excited to share it with you.</Paragraph>
         <SubTitle isRoboto={true}>Design That Inspires</SubTitle>

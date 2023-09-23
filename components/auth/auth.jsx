@@ -1,5 +1,6 @@
+'use client'
 import { useAuthContext } from "../../context/auth-context"
-import SignIn from "./signIn"
+import SignUp from "./signup"
 
 const Authentication = () => {
   const {state} = useAuthContext()
@@ -9,7 +10,7 @@ const Authentication = () => {
     <>
       {!isAuthenticated
       ?
-        <SignIn />
+        <SignUp />
       :
       <>
         <p>Im logged in now</p>
